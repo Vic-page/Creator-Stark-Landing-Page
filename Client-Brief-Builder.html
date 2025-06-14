@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Brief Builder</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.75rem;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 2rem;
+      background: #eee;
+      padding: 1rem;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Client Brief Builder</h1>
+    <label for="name">Client Name</label>
+    <input id="name" type="text" placeholder="e.g. Sarah Designs"><label for="project">Project Type</label>
+<input id="project" type="text" placeholder="e.g. Website Redesign">
+
+<label for="goals">Goals</label>
+<textarea id="goals" placeholder="What is the client trying to achieve?"></textarea>
+
+<label for="audience">Target Audience</label>
+<textarea id="audience" placeholder="Who is this for?"></textarea>
+
+<label for="style">Style Preferences</label>
+<textarea id="style" placeholder="e.g. Clean, modern, bold"></textarea>
+
+<label for="deadline">Deadline</label>
+<input id="deadline" type="text" placeholder="e.g. July 1st, 2025">
+
+<button onclick="generateBrief()">Generate Client Brief</button>
+
+<div class="output" id="output"></div>
+
+  </div>  <script>
+    function generateBrief() {
+      const name = document.getElementById('name').value;
+      const project = document.getElementById('project').value;
+      const goals = document.getElementById('goals').value;
+      const audience = document.getElementById('audience').value;
+      const style = document.getElementById('style').value;
+      const deadline = document.getElementById('deadline').value;
+
+      const brief = `Client Brief for ${name}
+
+Project: ${project}
+Deadline: ${deadline}
+
+Goals:
+${goals}
+
+Target Audience:
+${audience}
+
+Style Preferences:
+${style}`;
+
+      document.getElementById('output').textContent = brief;
+    }
+  </script></body>
+</html>
