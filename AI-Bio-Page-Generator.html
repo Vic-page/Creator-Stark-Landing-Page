@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Bio Page Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      text-align: center;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 0.7rem 1.5rem;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+    .output {
+      margin-top: 2rem;
+      background: #eee;
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Bio Page Generator</h1>
+    <input id="name" type="text" placeholder="Your Name" />
+    <input id="title" type="text" placeholder="Your Title" />
+    <textarea id="about" placeholder="Short bio/about you..."></textarea>
+    <input id="instagram" type="text" placeholder="Instagram URL" />
+    <input id="tiktok" type="text" placeholder="TikTok URL" />
+    <input id="youtube" type="text" placeholder="YouTube URL" /><button onclick="generatePage()">Generate Bio Page</button>
+
+<div class="output" id="output"></div>
+
+  </div>  <script>
+    function generatePage() {
+      const name = document.getElementById('name').value;
+      const title = document.getElementById('title').value;
+      const about = document.getElementById('about').value;
+      const instagram = document.getElementById('instagram').value;
+      const tiktok = document.getElementById('tiktok').value;
+      const youtube = document.getElementById('youtube').value;
+
+      const outputHTML = `<!DOCTYPE html>
+<html>
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 2rem; }
+    a { display: block; margin: 1rem auto; padding: 0.7rem; background: #000; color: #fff; width: 80%; text-decoration: none; border-radius: 5px; }
+  </style></head>
+<body>
+  <h1>${name}</h1>
+  <h3>${title}</h3>
+  <p>${about}</p>
+  ${instagram ? `<a href='${instagram}' target='_blank'>Instagram</a>` : ''}
+  ${tiktok ? `<a href='${tiktok}' target='_blank'>TikTok</a>` : ''}
+  ${youtube ? `<a href='${youtube}' target='_blank'>YouTube</a>` : ''}
+</body>
+</html>`;document.getElementById('output').textContent = outputHTML;
+}
+
+  </script>
+</body>
+</html>
