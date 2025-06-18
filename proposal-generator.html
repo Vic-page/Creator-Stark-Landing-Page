@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposal Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 1rem;
+      display: block;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.75rem;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .output {
+      white-space: pre-wrap;
+      background: #f1f1f1;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Proposal Generator</h1>
+
+    <label for="client">Client Name</label>
+    <input type="text" id="client" placeholder="e.g. Jane at Bloom Agency" />
+
+    <label for="yourName">Your Name / Business</label>
+    <input type="text" id="yourName" placeholder="e.g. Vic Design Studio" />
+
+    <label for="project">Project Description</label>
+    <textarea id="project" rows="3" placeholder="e.g. A full website redesign for an e-commerce brand"></textarea>
+
+    <label for="deliverables">Key Deliverables</label>
+    <textarea id="deliverables" rows="3" placeholder="e.g. Homepage, Product Pages, Cart UI, Mobile Version"></textarea>
+
+    <label for="timeline">Estimated Timeline</label>
+    <input type="text" id="timeline" placeholder="e.g. 3-4 weeks" />
+
+    <label for="price">Proposed Fee</label>
+    <input type="text" id="price" placeholder="e.g. $1200" />
+
+    <button onclick="generateProposal()">Generate Proposal</button>
+
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    function generateProposal() {
+      const client = document.getElementById("client").value;
+      const yourName = document.getElementById("yourName").value;
+      const project = document.getElementById("project").value;
+      const deliverables = document.getElementById("deliverables").value;
+      const timeline = document.getElementById("timeline").value;
+      const price = document.getElementById("price").value;
+
+      const content = `Hi ${client},
+
+Thank you for considering ${yourName} for your project. Based on our discussion, here's a proposal summary:
+
+Project: ${project}
+Deliverables:
+${deliverables}
+
+Timeline: ${timeline}
+Total Fee: ${price}
+
+Let me know if you'd like to proceed or have any changes. Looking forward to working with you!
+
+Best regards,
+${yourName}`;
+
+      document.getElementById("output").textContent = content;
+    }
+  </script>
+</body>
+</html>
