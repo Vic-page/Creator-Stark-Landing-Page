@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UGC Pitch Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fcfcfc;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 1rem;
+      display: block;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.75rem;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .output {
+      white-space: pre-wrap;
+      background: #f3f3f3;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>UGC Pitch Generator</h1>
+
+    <label for="creatorName">Your Name</label>
+    <input type="text" id="creatorName" placeholder="e.g. Vic Omotosho" />
+
+    <label for="brand">Brand Name</label>
+    <input type="text" id="brand" placeholder="e.g. GlowUp Skincare" />
+
+    <label for="product">Product/Niche</label>
+    <input type="text" id="product" placeholder="e.g. Vitamin C Serum" />
+
+    <label for="style">Content Style</label>
+    <input type="text" id="style" placeholder="e.g. Natural lighting, TikTok-style" />
+
+    <label for="results">Proof or Results</label>
+    <textarea id="results" rows="2" placeholder="e.g. I helped 2 skincare brands go viral with short-form content."></textarea>
+
+    <button onclick="generatePitch()">Generate UGC Pitch</button>
+
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    function generatePitch() {
+      const creatorName = document.getElementById("creatorName").value;
+      const brand = document.getElementById("brand").value;
+      const product = document.getElementById("product").value;
+      const style = document.getElementById("style").value;
+      const results = document.getElementById("results").value;
+
+      const pitch = `Hey ${brand} team 👋
+
+I’m ${creatorName}, a UGC creator who specializes in engaging, high-converting short-form videos.
+
+I love your brand and would be excited to create content for your ${product}. I shoot in ${style} and focus on storytelling that connects with Gen Z audiences.
+
+${results}
+
+Let me know if you’d like to see examples or book a test shoot — happy to send!
+
+Cheers,
+${creatorName}`;
+
+      document.getElementById("output").textContent = pitch;
+    }
+  </script>
+</body>
+</html>
